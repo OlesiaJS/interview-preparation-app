@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './components/interview.css';
+import Post from "./components/Post";
+
+function App({ interviewQuestion }) {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      {interviewQuestion.map((item, i) => {
+        return (
+          <Post
+            index={i + 1}
+            question={item.question}
+            url={item.URL}
+            answer={item.answer}
+            readCounter={0}
+          />
+        );
+      }
+      )}
+
     </div>
   );
 }
+
 
 export default App;

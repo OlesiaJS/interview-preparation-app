@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto';
+    font-size: 16px;
+    background-image: url('../img/fon.jpg');
+    background: url('../img/fon.jpg') repeat-y ;
+    -moz-background-size: 100%;/* Firefox 3.6+ */
+    -webkit-background-size: 100%;/* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%;/* Opera 9.6+ */
+    background-size: 100%;/* Современные браузеры */
+    height: 100vh;
+
+}
+
+.wrapper {
+    display: block;
+    margin: auto;
+    background-color: rgba(22, 21, 21);
+    color: aliceblue;
+    height: 100vh;
+    width: 100%; 
+    border-radius: 20px;
+    border: 1px;
+    border-color: aliceblue;
+}
+.itemQuestion {
+    box-sizing: border-box;
+    border: 2px solid #daa520b5;
+    border-radius: 20px;
+    background-color: rgb(17, 18, 18);
+    width: 100%;
+    padding: 15px;
+    max-height: min-content;
+    display: block;
+}
+.Iknow {
+    background-color: rgb(16, 72, 72);
+}
+
+.NeedAsk {
+    background-color: #ffc32a;
+    color: black;
+}
+
+.answer {
+padding-top: 10px;
+display: block;
+}
+.active {
+    padding-top: 10px;
+    display: none;
+}
+
+a {
+  color: #d74b3c;  
+}
+
+button {
+    padding: 5px;
+    color: aqua;
+    background-color: black;
+    border-color: #daa520;
+    border-radius: 5%;
+}
+
+@media only screen and (min-width: 500px) {
+    .wrapper {
+
+        height: 100vh;
+        max-width: 1024px;
+        border-radius: 20px;
+        border: 1px aliceblue;
+    }
+
+}

@@ -1,0 +1,19 @@
+
+const increaseReader = (e) => {
+    setReadCounter(reader + 1);
+    setIknow('Iknow');
+    if (ask) {
+        console.log(ask);
+        setAsk(prev => !prev);
+    }
+};
+
+const AskСhangeColor = (e) => {
+    setAsk(prev => !prev);
+};
+
+const addActiveClass = (e) => {
+    setActiveState(prev => !prev);
+};
+
+export { addActiveClass, AskСhangeColor, increaseReader };
