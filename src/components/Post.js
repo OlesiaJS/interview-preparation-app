@@ -7,25 +7,26 @@ function Post({ question, answer, url, index, readCounter }) {
     const [Iknow, setIknow] = useState(false);
     const [ask, setAsk] = useState(false);
     const [reader, setReadCounter] = useState(readCounter);
-    const [activeState, setActiveState] = useState(true);
+    const [learn, setLearn] = useState(true);
 
-    const increaseReader = (e) => {
+    const handleKnow = (e) => {
         setReadCounter(reader + 1);
-        setIknow('Iknow');
+        setIknow(true);
         if (ask) {
             setAsk(prev => !prev);
         }
-        if (!activeState) {
-            setActiveState(prev => !prev);
+        if (!learn) {
+            setLearn(prev => !prev);
         }
     };
 
-    const AskСhangeColor = (e) => {
+    const handleAsk = (e) => {
+        console.log(ask);
         setAsk(prev => !prev);
     };
 
-    const addActiveClass = (e) => {
-        setActiveState(prev => !prev);
+    const handleLearn = (e) => {
+        setLearn(prev => !prev);
         setIknow(false);
         setReadCounter(0);
     };
@@ -34,10 +35,10 @@ function Post({ question, answer, url, index, readCounter }) {
         <div className={`itemQuestion ${Iknow ? 'Iknow' : ''}  ${ask ? 'NeedAsk' : ''}`}>
             <div><span>{index}.</span>{question}</div>
             <div>я відповів вже {reader} разів</div>
-            <button type="button" onClick={increaseReader}>я знаю відповідь + </button>
-            <button onClick={addActiveClass}>Вчити <MdArrowCircleDown /></button>
-            <button onClick={AskСhangeColor}>Спитати<AiOutlineQuestion /></button>
-            <div className={`answer ${activeState ? 'active' : ''}`}><hr></hr>{answer}<a target="_blank" rel="noopener noreferrer" href={url}> Дивись детально тут</a></div>
+            <button type="button" onClick={handleKnow}>я знаю відповідь + </button>
+            <button onClick={handleLearn}>Вчити <MdArrowCircleDown /></button>
+            <button onClick={handleAsk}>Спитати<AiOutlineQuestion /></button>
+            <div className={`answer ${learn ? 'active' : ''}`}><hr></hr>{answer}<a target="_blank" rel="noopener noreferrer" href={url}> Дивись детально тут</a></div>
         </div>
     );
 }
