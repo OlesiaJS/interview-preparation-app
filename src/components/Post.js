@@ -3,7 +3,7 @@ import "./interview.css";
 import { MdArrowCircleDown } from "react-icons/md";
 import { AiOutlineQuestion } from "react-icons/ai";
 
-function Post({ question, answer, url, index, readCounter }) {
+function Post({ handleKnowCounter, question, answer, url, index, readCounter, countQuestionKnow }) {
     const [Iknow, setIknow] = useState(false);
     const [ask, setAsk] = useState(false);
     const [reader, setReadCounter] = useState(readCounter);
@@ -12,6 +12,10 @@ function Post({ question, answer, url, index, readCounter }) {
     const handleKnow = (e) => {
         setReadCounter(reader + 1);
         setIknow(true);
+        if (reader < 1) {
+            countQuestionKnow = countQuestionKnow + 1;
+            handleKnowCounter(countQuestionKnow);
+        }
         if (ask) {
             setAsk(prev => !prev);
         }
@@ -31,6 +35,7 @@ function Post({ question, answer, url, index, readCounter }) {
         setReadCounter(0);
     };
 
+
     return (
         <div className={`itemQuestion ${Iknow ? 'Iknow' : ''}  ${ask ? 'NeedAsk' : ''}`}>
             <div><span>{index}.</span>{question}</div>
@@ -42,4 +47,7 @@ function Post({ question, answer, url, index, readCounter }) {
         </div>
     );
 }
+
 export default Post;
+
+
