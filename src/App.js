@@ -4,9 +4,9 @@ import Post from "./components/Post";
 
 function App({ interviewQuestion }) {
   const countQuestion = interviewQuestion.length;
-  const [list, setList] = useState(interviewQuestion);
+  // const [list, setList] = useState(interviewQuestion);
   const [countQuestionKnow, setCounter] = useState(0);
-  const listQuestion = list.map((item, i) => {
+  const listQuestion = interviewQuestion.map((item, i) => {
     return (
       <Post
         index={i + 1}
@@ -27,13 +27,13 @@ function App({ interviewQuestion }) {
     );
   }
   );
-  const sortQuestion = listQuestion.sort(
-    (a, b) => b.readCounter - a.readCounter
-  );
+  // const sortQuestion = listQuestion.sort(
+  //   (a, b) => b.readCounter - a.readCounter
+  // );
   return (
     <div className="wrapper">
       <div className='itemTitle'>Ви відповіли на {countQuestionKnow}/{countQuestion} питань </div>
-      <div> {sortQuestion}</div>
+      <div> {listQuestion}</div>
     </div>
   );
 }
